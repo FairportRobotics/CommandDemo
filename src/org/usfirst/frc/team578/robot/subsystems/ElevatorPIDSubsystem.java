@@ -6,8 +6,6 @@ import org.usfirst.frc.team578.robot.Robot;
 import org.usfirst.frc.team578.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.CANTalon.ControlMode;
-import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -123,10 +121,10 @@ public class ElevatorPIDSubsystem extends SubsystemBase {
 		if (!enabled)
 			return;
 
-		elevatorTalon.changeControlMode(ControlMode.Speed);
+		elevatorTalon.changeControlMode(CANTalon.ControlMode.Speed);
 		elevatorTalon.enableControl();
 		elevatorTalon.set(0);
-		elevatorTalon.changeControlMode(ControlMode.Position);
+		elevatorTalon.changeControlMode(CANTalon.ControlMode.Position);
 		elevatorTalon.enableControl();
 
 		Robot.log.write(Level.WARNING, "Elevator stopped!");
@@ -253,8 +251,8 @@ public class ElevatorPIDSubsystem extends SubsystemBase {
 		CANTalon talon = new CANTalon(channel);
 		talon.reverseOutput(true);
 		talon.ConfigRevLimitSwitchNormallyOpen(false);
-		talon.changeControlMode(ControlMode.Position);
-		talon.setFeedbackDevice(FeedbackDevice.AnalogPot);
+		talon.changeControlMode(CANTalon.ControlMode.Position);
+		talon.setFeedbackDevice(CANTalon.FeedbackDevice.AnalogPot);
 		talon.setPID(6, .0001, 0.85, 0.75, 0, 0, 0);
 		//talon.setPID(1, 0.01, 0.85, 1.5, 0, 0, 0); //TUNED VALUES FOR FRONT RIGHT WHEEL
 		//talon.setPID(1.23, 0, 0, 1.33, 0, 10, 0); EXACT VALUES FOR OLD TESTBOARD PID DO NOT CHANGE

@@ -40,13 +40,7 @@ public class Robot extends IterativeRobot {
 	public static PDPSubystem pdpSubystem;
 	//public static PIDDrive pid;
 	//public static POTTest pot;
-	//i love kale
-	//kale is amazing
-	//misha is my lord
-	//kale
-	//kale
-	//kale
-	//kale
+
 
 	public static OI oi;
 	private static long startTime;
@@ -222,6 +216,5 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void testInit() {
-		new ElevatorCommand(0).start();
 	}
 }

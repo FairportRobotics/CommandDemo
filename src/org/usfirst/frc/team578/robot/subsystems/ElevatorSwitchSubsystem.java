@@ -6,7 +6,6 @@ import org.usfirst.frc.team578.robot.Robot;
 import org.usfirst.frc.team578.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.CANTalon.ControlMode;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -57,7 +56,7 @@ public class ElevatorSwitchSubsystem extends SubsystemBase {
 
 		//elevatorTalon.ConfigFwdLimitSwitchNormallyOpen(false);
 		//elevatorTalon.ConfigRevLimitSwitchNormallyOpen(false);
-		elevatorTalon.changeControlMode(ControlMode.PercentVbus);
+		elevatorTalon.changeControlMode(CANTalon.ControlMode.PercentVbus);
 	}
 
 	/**

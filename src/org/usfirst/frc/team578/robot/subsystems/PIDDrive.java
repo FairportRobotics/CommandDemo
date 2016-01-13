@@ -1,11 +1,9 @@
 package org.usfirst.frc.team578.robot.subsystems;
 
 import org.usfirst.frc.team578.robot.RobotMap;
-import org.usfirst.frc.team578.robot.commands.PIDDriveCommand;
+//import org.usfirst.frc.team578.robot.commands.PIDDriveCommand;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.CANTalon.ControlMode;
-import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -58,8 +56,8 @@ public class PIDDrive extends SubsystemBase {
 
 	private CANTalon initializeTalon(int channel) {
 		CANTalon talon = new CANTalon(channel);
-		talon.changeControlMode(ControlMode.Speed);
-		talon.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+		talon.changeControlMode(CANTalon.ControlMode.Speed);
+		talon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 		talon.setPID(1, 0.01, 0.85, 1.5, 0, 0, 0); //TUNED VALUES FOR FRONT RIGHT WHEEL
 		//talon.setPID(1.23, 0, 0, 1.33, 0, 10, 0); EXACT VALUES FOR OLD TESTBOARD PID DO NOT CHANGE
 		talon.enableControl();

@@ -1,13 +1,6 @@
 package org.usfirst.frc.team578.robot;
 
-import org.usfirst.frc.team578.robot.commands.EjectTotesCommand;
-import org.usfirst.frc.team578.robot.commands.ElevatorCommand;
-import org.usfirst.frc.team578.robot.commands.ElevatorLevel2CommandGroup;
-import org.usfirst.frc.team578.robot.commands.ElevatorLevel4CommandGroup;
-import org.usfirst.frc.team578.robot.commands.ElevatorStopCommand;
-import org.usfirst.frc.team578.robot.commands.SpinEjectCommand;
-import org.usfirst.frc.team578.robot.commands.SpinIntakeCommand;
-import org.usfirst.frc.team578.robot.commands.SpinStopCommand;
+
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -84,29 +77,7 @@ public class OI {
     	leftJoystickButtonSEVEN = new JoystickButton(leftJoystick, RobotMap.JOYSTICK_STOP_ELEVATOR);
     	rightJoystickButtonSEVEN = new JoystickButton(rightJoystick, RobotMap.JOYSTICK_STOP_ELEVATOR);
     	
-    	buttonONE.whenPressed(new ElevatorCommand(1));
-    	buttonTWO.whenPressed(new ElevatorLevel2CommandGroup());
-    	buttonTHREE.whenPressed(new ElevatorCommand(3));
-    	buttonFOUR.whenPressed(new ElevatorLevel4CommandGroup());
-    	
-    	buttonFIVE.whenPressed(new SpinIntakeCommand());
-    	buttonSEVEN.whenPressed(new SpinIntakeCommand());
-    	
-    	buttonFIVE.whenReleased(new SpinStopCommand());
-    	buttonSEVEN.whenReleased(new SpinStopCommand());
-    	
-    	buttonSIX.whenPressed(new SpinEjectCommand());
-    	buttonEIGHT.whenPressed(new SpinEjectCommand());
-    	
-    	buttonSIX.whenReleased(new SpinStopCommand());
-    	buttonEIGHT.whenReleased(new SpinStopCommand());
-    	
-    	buttonNINE.whenPressed(new EjectTotesCommand());
-    	
-    	buttonTEN.whenPressed(new ElevatorStopCommand());
-    	
-    	leftJoystickButtonSEVEN.whenPressed(new ElevatorStopCommand());
-    	rightJoystickButtonSEVEN.whenPressed(new ElevatorStopCommand());
+
 
     	//SmartDashboard.putString("ADA", "AODUA");
     }

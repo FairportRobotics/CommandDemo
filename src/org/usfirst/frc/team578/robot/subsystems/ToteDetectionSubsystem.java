@@ -1,7 +1,7 @@
 package org.usfirst.frc.team578.robot.subsystems;
 
 import org.usfirst.frc.team578.robot.RobotMap;
-import org.usfirst.frc.team578.robot.commands.ReadToteCommand;
+//import org.usfirst.frc.team578.robot.commands.ReadToteCommand;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 
