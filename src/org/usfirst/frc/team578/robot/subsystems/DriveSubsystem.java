@@ -126,7 +126,7 @@ public class DriveSubsystem extends SubsystemBase {
 	 */
 	private CANTalon initializeTalon(int channel) {
 		CANTalon talon = new CANTalon(channel);
-		talon.changeControlMode(CANTalon.ControlMode.PercentVbus);
+		talon.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
 		//talon.changeControlMode(ControlMode.Speed);
 		//talon.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		//talon.setPID(1, 0.01, 0.85, 1.5, 0, 0, 0);

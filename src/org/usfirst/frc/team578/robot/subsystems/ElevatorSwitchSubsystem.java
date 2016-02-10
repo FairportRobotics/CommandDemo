@@ -56,7 +56,7 @@ public class ElevatorSwitchSubsystem extends SubsystemBase {
 
 		//elevatorTalon.ConfigFwdLimitSwitchNormallyOpen(false);
 		//elevatorTalon.ConfigRevLimitSwitchNormallyOpen(false);
-		elevatorTalon.changeControlMode(CANTalon.ControlMode.PercentVbus);
+		elevatorTalon.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
 	}
 
 	/**

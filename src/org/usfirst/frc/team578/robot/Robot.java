@@ -13,7 +13,10 @@ import org.usfirst.frc.team578.robot.subsystems.PDPSubystem;
 import org.usfirst.frc.team578.robot.subsystems.SubsystemBase;
 import org.usfirst.frc.team578.robot.subsystems.ToteDetectionSubsystem;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -38,6 +41,7 @@ public class Robot extends IterativeRobot {
 	public static LoggingSubsystem log;
 	public static ToteDetectionSubsystem toteDetectionSubsystem;
 	public static PDPSubystem pdpSubystem;
+	public static AHRS navx;
 	//public static PIDDrive pid;
 	//public static POTTest pot;
 
@@ -65,7 +69,9 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		//Log has no robot references, no need to disable currently. (As of 2/11/15)
 		log = new LoggingSubsystem();
-		log.write(Level.INFO, "ROBOT INITIALIZING...");	
+		log.write(Level.INFO, "ROBOT INITIALIZING...");
+		
+		navx = new AHRS(SPI.Port.kMXP);
 
 		//INIT ROBOT SUBSYSTEMS
 

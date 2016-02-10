@@ -176,7 +176,7 @@ public class ElevatorPIDSpeedSubsystem extends SubsystemBase {
 		Robot.log.write(Level.WARNING, "Elevator stopped!");
 		state = ElevatorState.IDLE;
 
-		elevatorTalon.changeControlMode(CANTalon.ControlMode.PercentVbus);
+		elevatorTalon.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
 		elevatorTalon.enableControl();
 		elevatorTalon.set(0);
 	}
@@ -206,7 +206,7 @@ public class ElevatorPIDSpeedSubsystem extends SubsystemBase {
 			//Changes Pot to speed mode for level 1 and 4.
 			if((desiredLevel == 4||desiredLevel == 1))
 			{
-				elevatorTalon.changeControlMode(CANTalon.ControlMode.PercentVbus);
+				elevatorTalon.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
 				elevatorTalon.enableControl();
 
 				if(desiredLevel == 1)
@@ -220,7 +220,7 @@ public class ElevatorPIDSpeedSubsystem extends SubsystemBase {
 			}
 			else
 			{
-				elevatorTalon.changeControlMode(CANTalon.ControlMode.Position);
+				elevatorTalon.changeControlMode(CANTalon.TalonControlMode.Position);
 				elevatorTalon.enableControl();
 
 				elevatorTalon.set(positions[desiredLevel]);
@@ -250,7 +250,7 @@ public class ElevatorPIDSpeedSubsystem extends SubsystemBase {
 	{
 		Robot.log.write(Level.WARNING, "Calibrating Elevator!");
 		state = ElevatorState.HOMING;
-		elevatorTalon.changeControlMode(CANTalon.ControlMode.PercentVbus);
+		elevatorTalon.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
 		elevatorTalon.enableControl();
 		elevatorTalon.set(0.5); //drive to bottom limit
 	}
@@ -414,7 +414,7 @@ public class ElevatorPIDSpeedSubsystem extends SubsystemBase {
 		{
 			Robot.log.write(Level.WARNING, "Reached desired level: " + desiredLevel 
 					+ " Current position: " + elevatorTalon.getPosition());
-			elevatorTalon.changeControlMode(CANTalon.ControlMode.Position);
+			elevatorTalon.changeControlMode(CANTalon.TalonControlMode.Position);
 			elevatorTalon.enableControl();
 			//			if (desiredLevel == 1 || desiredLevel == 4){
 			//				elevatorTalon.set(elevatorTalon.getPosition());
@@ -452,7 +452,7 @@ public class ElevatorPIDSpeedSubsystem extends SubsystemBase {
 		CANTalon talon = new CANTalon(channel);
 		talon.reverseOutput(true);
 		talon.ConfigRevLimitSwitchNormallyOpen(false);
-		talon.changeControlMode(CANTalon.ControlMode.Position);
+		talon.changeControlMode(CANTalon.TalonControlMode.Position);
 		talon.setFeedbackDevice(CANTalon.FeedbackDevice.AnalogPot);
 		talon.setPID(6, .0001, 0.85, 0.75, 0, 0, 0);
 		//talon.setPID(1, 0.01, 0.85, 1.5, 0, 0, 0); //TUNED VALUES FOR FRONT RIGHT WHEEL
@@ -476,7 +476,7 @@ public class ElevatorPIDSpeedSubsystem extends SubsystemBase {
 
 		state = ElevatorState.FINE_CONTROL;
 
-		elevatorTalon.changeControlMode(CANTalon.ControlMode.PercentVbus);
+		elevatorTalon.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
 		elevatorTalon.enableControl();
 		elevatorTalon.set(TALON_SPEED_REVERSE); //TODO: is backwards?
 	}

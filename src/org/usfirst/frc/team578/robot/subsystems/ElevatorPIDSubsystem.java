@@ -121,10 +121,10 @@ public class ElevatorPIDSubsystem extends SubsystemBase {
 		if (!enabled)
 			return;
 
-		elevatorTalon.changeControlMode(CANTalon.ControlMode.Speed);
+		elevatorTalon.changeControlMode(CANTalon.TalonControlMode.Speed);
 		elevatorTalon.enableControl();
 		elevatorTalon.set(0);
-		elevatorTalon.changeControlMode(CANTalon.ControlMode.Position);
+		elevatorTalon.changeControlMode(CANTalon.TalonControlMode.Position);
 		elevatorTalon.enableControl();
 
 		Robot.log.write(Level.WARNING, "Elevator stopped!");
@@ -251,7 +251,7 @@ public class ElevatorPIDSubsystem extends SubsystemBase {
 		CANTalon talon = new CANTalon(channel);
 		talon.reverseOutput(true);
 		talon.ConfigRevLimitSwitchNormallyOpen(false);
-		talon.changeControlMode(CANTalon.ControlMode.Position);
+		talon.changeControlMode(CANTalon.TalonControlMode.Position);
 		talon.setFeedbackDevice(CANTalon.FeedbackDevice.AnalogPot);
 		talon.setPID(6, .0001, 0.85, 0.75, 0, 0, 0);
 		//talon.setPID(1, 0.01, 0.85, 1.5, 0, 0, 0); //TUNED VALUES FOR FRONT RIGHT WHEEL

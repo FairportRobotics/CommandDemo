@@ -56,7 +56,7 @@ public class PIDDrive extends SubsystemBase {
 
 	private CANTalon initializeTalon(int channel) {
 		CANTalon talon = new CANTalon(channel);
-		talon.changeControlMode(CANTalon.ControlMode.Speed);
+		talon.changeControlMode(CANTalon.TalonControlMode.Speed);
 		talon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 		talon.setPID(1, 0.01, 0.85, 1.5, 0, 0, 0); //TUNED VALUES FOR FRONT RIGHT WHEEL
 		//talon.setPID(1.23, 0, 0, 1.33, 0, 10, 0); EXACT VALUES FOR OLD TESTBOARD PID DO NOT CHANGE
