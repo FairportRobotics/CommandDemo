@@ -217,7 +217,7 @@ public class Robot extends IterativeRobot {
 	 */
 	public void testPeriodic() {
 		Scheduler.getInstance().run();
-		LiveWindow.run();
+		navx.reset();
 	}
 	
 	@Override
