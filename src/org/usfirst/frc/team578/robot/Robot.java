@@ -4,6 +4,7 @@ import java.util.logging.Level;
 
 import org.usfirst.frc.team578.robot.commands.autonomous.AutonomousNothing;
 import org.usfirst.frc.team578.robot.commands.autonomous.AutonomousDriveStraightGroup;
+import org.usfirst.frc.team578.robot.commands.autonomous.AutonomousTurnToZero;
 import org.usfirst.frc.team578.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team578.robot.subsystems.ElevatorPIDSpeedSubsystem;
 import org.usfirst.frc.team578.robot.subsystems.FibinacciSubsystem;
@@ -167,7 +168,8 @@ public class Robot extends IterativeRobot {
 
 	public void autonomousInit() {
 		// schedule the autonomous command (example)
-		autonomousCommand = (Command) autonomousChooser.getSelected();
+		//autonomousCommand = (Command) autonomousChooser.getSelected();
+//		autonomousCommand = new AutonomousTurnToZero();
 		log.openStream();
 		Robot.log.write(Level.INFO, "Initializing Autonomous mode: " + autonomousCommand.getName());
 
