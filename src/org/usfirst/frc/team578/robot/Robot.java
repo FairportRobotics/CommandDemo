@@ -2,6 +2,7 @@ package org.usfirst.frc.team578.robot;
 import java.lang.reflect.Field;
 import java.util.logging.Level;
 
+import org.usfirst.frc.team578.robot.camera.CameraFeeds;
 import org.usfirst.frc.team578.robot.commands.autonomous.AutonomousNothing;
 import org.usfirst.frc.team578.robot.commands.autonomous.AutonomousDriveStraightGroup;
 import org.usfirst.frc.team578.robot.commands.autonomous.AutonomousTurnToZero;
@@ -14,7 +15,8 @@ import org.usfirst.frc.team578.robot.subsystems.PDPSubystem;
 import org.usfirst.frc.team578.robot.subsystems.SubsystemBase;
 import org.usfirst.frc.team578.robot.subsystems.ToteDetectionSubsystem;
 
-import com.kauailabs.navx.frc.AHRS;
+//import com.kauailabs.navx.frc.AHRS;
+
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.SPI;
@@ -42,7 +44,7 @@ public class Robot extends IterativeRobot {
 	public static LoggingSubsystem log;
 	public static ToteDetectionSubsystem toteDetectionSubsystem;
 	public static PDPSubystem pdpSubystem;
-	public static AHRS navx;
+	//public static AHRS navx;
 	//public static PIDDrive pid;
 	//public static POTTest pot;
 
@@ -55,6 +57,7 @@ public class Robot extends IterativeRobot {
 	private SendableChooser loggingLevelChooser;
 	private boolean initial = true;
 	//private boolean calibrated;
+	CameraFeeds cameraFeeds = new CameraFeeds();
 
 	public static long getElapsedTime()
 	{
@@ -72,7 +75,7 @@ public class Robot extends IterativeRobot {
 		log = new LoggingSubsystem();
 		log.write(Level.INFO, "ROBOT INITIALIZING...");
 		
-		navx = new AHRS(SPI.Port.kMXP);
+//		navx = new AHRS(SPI.Port.kMXP);
 
 		//INIT ROBOT SUBSYSTEMS
 
@@ -190,6 +193,8 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null) autonomousCommand.cancel();
 
+		cameraFeeds.init();
+		
 		Robot.log.write(Level.INFO, "Beginning Teleop!");
 	}
 
@@ -204,6 +209,7 @@ public class Robot extends IterativeRobot {
 			Robot.log.write(Level.INFO, "Robot disabled");
 			Robot.log.closeStream();
 		}
+		cameraFeeds.end();
 	}
 
 	/**
@@ -211,15 +217,15 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		cameraFeeds.run();
 	}
-	//popeye loves kale
 
 	/**
 	 * This function is called periodically during test mode
 	 */
 	public void testPeriodic() {
 		Scheduler.getInstance().run();
-		navx.reset();
+//		navx.reset();
 	}
 	
 	@Override

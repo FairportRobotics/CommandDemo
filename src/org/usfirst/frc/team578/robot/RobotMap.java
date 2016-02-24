@@ -54,4 +54,12 @@ public class RobotMap {
 	//Misc
 	public static final int TOTE_SENSOR = 0;
 	
+	// camera related
+	public static final int btCamCenter = 1;
+	public static final int btCamRight = 2;
+
+	public static final String camNameCenter = "cam0";
+	public static final String camNameRight = "cam1";
+	public static final int imgQuality = 60;
+	
 }
